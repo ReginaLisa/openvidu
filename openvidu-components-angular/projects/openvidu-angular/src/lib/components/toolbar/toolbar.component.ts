@@ -515,6 +515,8 @@ export class ToolbarComponent implements OnInit, OnDestroy, AfterViewInit {
 	 */
 	leaveSession() {
 		this.log.d('Leaving session...');
+		this.chatService.messageList = [];
+        this.chatService._messageList.next(new Object());
 		this.openviduService.disconnect();
 		this.onLeaveButtonClicked.emit();
 	}
